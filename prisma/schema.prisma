@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum Category {
+  ALL
+  NEW
+  SALE
+  TEES
+  POLOS
+  HOODIES
+  JACKETS
+  PANTS
+  SHORTS
+  HATS
+  ACCESSORIES
+}
+
+model Product {
+  id              Int      @id @default(autoincrement())
+  name            String   @map("name")
+  desc            String   @map("desc")
+  price           Float
+  discountPrice   Float?
+  sale            Float?
+  category        Category @map("category")
+  isNew           Boolean?
+  onSale          Boolean?
+  thumbnailSrc    String?  @map("thumbnailSrc")
+  altThumbanilSrc String?  @map("altThumbanilSrc")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("products")
+}
