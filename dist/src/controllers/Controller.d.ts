@@ -5,6 +5,9 @@ declare class Controller {
     constructor(service: Service);
     getAll: (req: Request, res: Response) => Promise<void>;
     getById: (req: Request, res: Response) => Promise<void>;
+    createNew: (req: Request, res: Response) => Promise<void>;
+    updateRecord: (req: Request, res: Response) => Promise<void>;
+    deleteRecord: (req: Request, res: Response) => Promise<void>;
 }
 export default Controller;
 //# sourceMappingURL=Controller.d.ts.map
